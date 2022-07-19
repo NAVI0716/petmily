@@ -5,12 +5,12 @@ import pandas as pd
 
 conn = pymysql.connect(host = 'localhost', user='root',password='48615+',db='petmily_db',charset='utf8')
 curs = conn.cursor()
-sql = "insert into hospital_info (name, contract, is24, isBeautyParlor, isHotel, isStore, hasParkingLot, businessHours, latitude, longitude, address, subject, species) values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-f = open('datalib/exampledata/petraschu.csv','r',encoding='utf-8')
+sql = "insert into hospital_info (HospitalID, name, contract, is24, isBeautyParlor, isHotel, isStore, hasParkingLot, businessHours, latitude, longitude, address, subject, species) values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+f = open('datalib/exampledata/petraschuy.csv','r',encoding='utf-8')
 rd = csv.reader(f)
 next(rd)
 for line in rd:
-    curs.execute(sql, (line[0],line[1],line[2],line[3],line[4],line[5],line[6],line[7],line[8],line[9],line[10],line[11],line[12]))
+    curs.execute(sql, (line[0],line[1],line[2],line[3],line[4],line[5],line[6],line[7],line[8],line[9],line[10],line[11],line[12],line[13]))
 conn.commit()
 conn.close()
 f.close()
