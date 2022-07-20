@@ -1,4 +1,4 @@
-from flask import Flask, request, make_response, jsonify
+from flask import Flask, make_response, jsonify, request
 import requests
 import os
 import pymysql
@@ -6,7 +6,24 @@ app = Flask(__name__, static_url_path='/', static_folder='build')
 
 @app.route('/reserve', methods=['GET','POST'])
 def insert_data():
-    params = request.json
+    if requset.method == 'GET':
+        args_dict = request.args.to_dict()
+    else:
+        HospitalID = 33
+        Customer_name = request.form["User_name"]
+        Customer_number = request.form["User_PH"]
+        AnimalType = request.form["dog"]
+        Symptom = request.form["Symp"]
+        Time = request.form["use_time"]
+        # req_data = {
+        #     HospitalID:33,
+        #     Customer_name:request.form["User_name"],
+        #     Customer_number:request.form["User_PH"],
+        #     AnimalType:request.form["dog"],
+        #     Symptom: request.form["Symp"],
+        #     Time: request.form["use_time"]
+        # }
+    return 
     
 
     ###--- db에 저장
